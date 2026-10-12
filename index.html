@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قراراتك تصنع قصتك | اليوم العالمي للصحة النفسية</title>
+    <!-- خطوط Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2E6F40;
+            --primary-light: #3E8E55;
+            --teal: #2A7F62;
+            --bg-color: #F9FBF9;
+            --card-bg: #FFFFFF;
+            --card-border: #EEF2EE;
+            --text-main: #222B22;
+            --text-muted: #556355;
+            --accent: #7C6EE6;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(46, 111, 64, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        header {
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .logo-placeholder {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--primary);
+            background: #EAF3EC;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px dashed var(--primary);
+        }
+
+        .event-badge {
+            font-size: 0.9rem;
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 700px;
+            width: 100%;
+            margin: 20px auto;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .disclaimer-box {
+            background: #F4F7F4;
+            border-right: 4px solid var(--teal);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(46, 111, 64, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+            margin-top: 10px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #EAF3EC;
+        }
+
+        /* Path Selection Grid */
+        .paths-grid {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .path-card {
+            background: #FAFCFA;
+            border: 2px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .path-card:hover {
+            border-color: var(--primary);
+            background: #F2F8F3;
+            transform: translateY(-2px);
+        }
+
+        .path-info h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .path-info p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: var(--text-muted);
+        }
+
+        .path-icon {
+            font-size: 2rem;
+        }
+
+        /* Options styling */
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            background: #FAFCFA;
+            border: 1.5px solid var(--card-border);
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-align: right;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+        }
+
+        .option-btn:hover {
+            border-color: var(--teal);
+            background: #F0F7F4;
+        }
+
+        .feedback-box {
+            background: #EAF3EC;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .feedback-box h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .feedback-box p {
+            color: var(--text-main);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            background-color: var(--card-border);
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--teal);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .result-section {
+            margin-bottom: 20px;
+        }
+
+        .result-section h3 {
+            color: var(--teal);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .result-section ul {
+            padding-right: 20px;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .result-section li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 10px 0;
+            border-top: 1px solid var(--card-border);
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 600px) {
+            .card { padding: 20px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-placeholder">[شعار نادي المؤسس]</div>
+        <div class="event-badge">اليوم العالمي للصحة النفسية</div>
+    </header>
+
+    <main id="app-container">
+        <!-- المحتوى يتغير ديناميكياً عبر JavaScript -->
+    </main>
+
+    <footer>
+        جميع الحقوق محفوظة © فعالية الصحة النفسية | تجربة توعوية تفاعلية
+    </footer>
+
+    <script>
+        // بيانات المسارات والمواقف كاملة
+        const pathsData = {
+            work: {
+                title: "تحت ضغط العمل",
+                icon: "💼",
+                desc: "تعامل مع ضغوط المهام، تداخل المواعيد، وتحديات البيئة المهنية.",
+                scenarios: [
+                    {
+                        title: "الموقف 1: تراكم المهام المفاجئ",
+                        desc: "وقبل نهاية الدوام بدقائق، يطلب منك مديرك تعديلًا عاجلًا على مشروع، بينما لديك مهام أخرى مؤجلة للغد.",
+                        options: [
+                            { text: "أقبل الطلب فورًا وأضغط نفسي لإنهاء كل شيء اليوم.", feedback: "تنجز العمل لكنك تشعر بإرهاق مضاعف نهاية اليوم.", category: "stress" },
+                            { text: "أنظم أولوياتي بهدوء، وأقترح تسليم جزء اليوم وتأجيل البقية للصباح بجودة عالية.", feedback: "يتفهم المدير الوضع، وتحافظ على جودة عملك وطاقتك.", category: "boundaries" },
+                            { text: "أتوتر وأحاول العمل على كل الجبهات بعشوائية مما يشتتني.", feedback: "يتسبب التشتت في تأخير المهام وزيادة شعورك بالضغط.", category: "emotion" }
+                        ]
+                    },
+                    {
+                        title: "الموقف 2: ضغط الاجتماعات المتتالية",
+                        desc: "يومك مليء بالاجتماعات المتواصلة دون دقيقة راحة واحدة لتحضير مهامك الخاصة.",
+                        options: [
+                            { text: "أحضر جميع الاجتماعات صامتًا وأؤجل مهامي لما بعد الدوام.", feedback: "يستهلك يومك بالكامل وتخرج بطاقة منخفضة.", category: "boundaries" },
+                            { text: "أعتذر عن الاجتماعات غير الضرورية أو أقترح اختصار مدتها لتوفير وقت للتركيز.", feedback: "توفر مساحة زمنية هادئة لإنجاز المهام بعمق.", category: "stress" },
+                            { text: "أنشغل بالتفكير طوال الاجتماعات في المهام دون التركيز في النقاش.", feedback: "تفقد الاستفادة من الاجتماعات ولا تنجز مهامك.", category: "emotion" }
+                        ]
+                    },
+                    {
+                        title: "الموقف 3: الغموض في متطلبات المشروع",
+                        desc: "تسلمك الإدارة مشروعًا جديدًا بتفاصيل غير واضحة وموعد تسليم قريب.",
+                        options: [
+                            { text: "أبدأ العمل فورًا بتخمين التفاصيل لتجنب إزعاج الفريق.", feedback: "تكتشف لاحقًا أن الاتجاه كان مختلفًا وتضطر لإعادة العمل.", category: "adaptability" },
+                            { text: "أبادر بطلب اجتماع سريع ومحدد مع الفريق لتوضيح النقاط أولًا.", feedback: "يمنحك وضوح الرؤية انطلاقة واثقة ومنظمة.", category: "support" },
+                            { text: "أتأخر في البدء انتظارًا لأن تتضح الصورة لوحدها مع الوقت.", feedback: "يضغطك عامل الوقت لاحقًا بشكل كبير.", category: "stress" }
+                        ]
+                    },
+                    {
+                        title: "الموقف 4: شعور الإرهاق الداخلي",
+                        desc: "تلاحظ أن تركيزك بدأ يقل، وتمر بيوم تشعر فيه بالإرهاق الذهني الواضح.",
+                        options: [
+                            { text: "أتجاهل التعب وأضغط على نفسي لأن العمل لا ينتظر.", feedback: "يزداد استنزافك وتتراجع إنتاجيتك.", category: "emotion" },
+                            { text: "أخذ استراحة قصيرة، وأعيد تنظيم مهامي بما يتناسب مع طاقتي.", feedback: "تستعيد جزءًا من تركيزك وتكمل يومك بتوازن.", category: "stress" },
+                            { text: "أشتكي طوال الوقت لمن حولى من حجم الضغط.", feedback: "يبقى الضغط كما هو ويضاف إليه استنزاف طاقتك.", category: "support" }
+                        ]
+                    }
+                ],
+                result: {
+                    summary: "في مواقف العمل والضغط، تميل إلى الموازنة والبحث عن حلول تنظيمية تحمي طاقتك.",
+                    strengths: ["القدرة على إعادة ترتيب الأولويات", "الوعي المبكر بأهمية الحدود المهنية"],
+                    reflection: ["قد تستفيد من منح نفسك مساحات أوسع للتوقف المؤقت قبل الاستجابة للطلبات المفاجئة."],
+                    action: "جرب تخصيص أول 10 دقائق من يومك لتحديد أهم مهمتين فقط، وترك مساحة مرنة للطوارئ."
+                }
+            },
+            social: {
+                title: "بينك وبين الآخرين",
+                icon: "👥",
+                desc: "استكشف أسلوبك في التواصل، بناء الحدود الصحية، ودعم من حولك.",
+                scenarios: [
+                    {
+                        title: "الموقف 1: سوء فهم مع زميل",
+                        desc: "شعرت أن زميلك تحدث معك بطريقة جافة أثناء اجتماع عمل أمام الجميع.",
+                        options: [
+                            { text: "أتجاهل الموقف تمامًا وأقاطعه في التعاملات المستقبلية.", feedback: "يبقى التوتر خفيًا ويؤثر على جودة التعاون.", category: "boundaries" },
+                            { text: "أتحدث معه على انفراد بكل هدوء للاستفسار وتوضيح وجهة النظر.", feedback: "يتبدد سوء الفهم سريعًا وتعود العلاقة مرتاحة.", category: "support" },
+                            { text: "أغضب داخليًا وأرد عليه بنفس الطريقة في أول فرصة.", feedback: "يتصاعد الموقف ويزداد التوتر بينكم.", category: "emotion" }
+                        ]
+                    },
+                    {
+                        title: "الموقف 2: طلب مساعدة غير مريح",
+                        desc: "يطلب منك صديق معروف بكثرة الاتكال خدمات متكررة في أوقات غير مناسبة.",
+                        options: [
+                            { text: "أوافق دائمًا على طلباته على حساب راحتي كي لا أجرح احساسه.", feedback: "تتراكم لديك مشاعر الإرهاق والاستياء الصامت.", category: "boundaries" },
+                            { text: "أعتذر بلطف وبصورة واضحة مع إبداء الاستعداد لاحقًا ضمن طاقتي.", feedback: "تحافظ على حدودك وعلى ود العلاقة في آنٍ واحد.", category: "boundaries" },
+                            { text: "أنفعل وأرفض طلبه بطريقة حادة تجعله يبتعد تمامًا.", feedback: "يشعر الطرف الآخر بالصدمة وتتوتر العلاقة.", category: "emotion" }
+                        ]
+                    },
+                    {
+                        title: "الموقف 3: الاستماع لصديق يمر بأزمة",
+                        desc: "يبادر صديقك بالحديث عن مشكلة شخصية صعبة يمر بها ويطلب مشورتك.",
+                        options: [
+                            { text: "أقاطعه فورًا بتقديم حلول جاهزة وسريعة ليغلق الموضوع.", feedback: "يشعر أنك لم تستوعب عمق مشكلته بشكل كافٍ.", category: "support" },
+                            { text: "استمع إليه باهتمام، وأتأكد من فهم مشاعره قبل اقتراح أي خطوة.", feedback: "يجد عندك الراحة والدعم النفسي الحقيقي.", category: "support" },
+                            { text: "أغير موضوع الحديث لعدم توفر طاقة كافية لدي.", feedback: "يشعر بالوحدة وعدم الاهتمام.", category: "boundaries" }
+                        ]
+                    },
+                    {
+                        title: "الموقف 4: التعبير عن الرأي المختلف",
+                        desc: "في جلسة نقاشية، كان رأي المجموعة مخالفًا تمامًا لرأيك في موضوع مهم.",
+                        options: [
+                            { text: "أصمت تمامًا وأوافقهم الرأي لتجنب النقاشات المطولة.", feedback: "تفوت فرصة إثراء النقاش وعدم التعبير عن ذاتك.", category: "support" },
+                            { text: "أعرض رأيي بهدوء واحترام مع أدلة بسيطة دون فرض أو هجوم.", feedback: "يحترم الجميع طريقتك الواعية في طرح الاختلاف.", category: "adaptability" },
+                            { text: "أدافع عن رأيى بحماس شديد وأتحول إلى جدال حاد.", feedback: "يتحول النقاش إلى صدام يفقد جوهر الحوار.", category: "emotion" }
+                        ]
+                    }
+                ],
+                result: {
+                    summary: "تميل في علاقاتك إلى التعاطف العالي والحرص على التواصل الإيجابي المتبادل.",
+                    strengths: ["القدرة على الإنصات الفعّال", "السعي الدائم لبناء تواصل آمن"],
+                    reflection: ["تأكد من أهمية وضع حدود صحية تضمن حماية طاقتك الشخصية دون شعور بالذنب."],
+                    action: "تدرب على قول 'لا' بلطف عندما تكون طاقتك منخفضة، فالعناية بالذات هي أساس دعم الآخرين."
+                }
+            },
+            whatif: {
+                title: "ماذا لو؟ (مسار المرونة والتكيف)",
+                icon: "✨",
+                desc: "مواقف غير متوقعة، متغيرات مفاجئة، وقرارات تحت عدم اليقين.",
+                scenarios: [
+                    {
+                        title: "الموقف 1: التغيير المفاجئ للخطط",
+                        desc: "كنت مستعدًا ليوم منظم تمامًا، وفجأة ظهر طارئ غيّر جدولك ورتبك أولوياتك بالكامل.",
+                        options: [
+                            { text: "أشعر بإحباط شديد وأجد صعوبة في استكمال بقية اليوم.", feedback: "يضيع باقي اليوم في التفكير بالخطة السابقة.", category: "emotion" },
+                            { text: "أخذ نفسًا عميقًا، وأعيد ترتيب المهمة الجديدة ضمن المتاح بهدوء.", feedback: "تتأقلم مع المتغيرات بسرعة وتتحكم بزمام الأمور.", category: "adaptability" },
+                            { text: "أهرب من التزامات اليوم وأقرر تأجيل كل شيء.", feedback: "تتراكم عليك المهام وتتضاعف الضغوط غدًا.", category: "stress" }
+                        ]
+                    },
+                    {
+                        title: "الموقف 2: البداية في بيئة جديدة تمامًا",
+                        desc: "تجد نفسك فجأة مطالبًا بقيادة مهمة أو الدخول في فريق لا تعرف فيه أحدًا.",
+                        options: [
+                            { text: "أشعر بقلق وتوتر كبيرين يجعلاني أفضّل الانسحاب مبكرًا.", feedback: "تفوت فرصة رائعة لاكتساب خبرات جديدة.", category: "emotion" },
+                            { text: "أنظر للأمر كتحدٍ ممتع، وأتعرف على الفريق وأستفسر عن المنهجية.", feedback: "تندمج بسرعة وتترك انطباعًا مميزًا.", category: "adaptability" },
+                            { text: "أتظاهر بالمعرفة الكاملة بكل شيء لئلا يلاحظ أحد ترددِي.", feedback: "تقع في أخطاء كان يمكن تجنبها بسؤال بسيط.", category: "support" }
+                        ]
+                    },
+                    {
+                        title: "الموقف 3: مواجهة النقد غير المتوقع",
+                        desc: "قدمت جهدًا كبيرًا في مشروع، وتلقيت نقدًا لاعجًا أو ملاحظات قاسية علنًا.",
+                        options: [
+                            { text: "آخذ الأمر بشكل شخصي جارح، وأشعر بالإحباط الشديد.", feedback: "يفقدك النقد ثقتك ويحجب عنك الاستفادة.", category: "emotion" },
+                            { text: "أفصل بين النقد الموجه للعمل وشخصي، وأستخلص منه ما يفيدني.", feedback: "تحتفظ باتزانك وتطور أدائك بفعالية.", category: "adaptability" },
+                            { text: "أرد بهجوم مضاد فوري للدفاع عن جهدي ورفض الملاحظات.", feedback: "ينغلق باب الحوار وتتحول المساحة لصراع.", category: "stress" }
+                        ]
+                    },
+                    {
+                        title: "الموقف 4: التشتت بين خيارات مصيرية",
+                        desc: "تجد نفسك أمام عدة خيارات مهنية أو شخصية مهمة، وكل خيار يحمل إيجابيات وسلبيات.",
+                        options: [
+                            { text: "أؤجل القرار لفترات طويلة هربًا من خطأ الاختيار.", feedback: "تظل عالقًا في نفس النقطة بينما الوقت يمضي.", category: "stress" },
+                            { text: "أكتب المعايير الأساسية، وأستشير شخصًا ثقة، ثم أتخذ قرارًا وأتقبله.", feedback: "تمنح نفسك طمأنينة الوضوح وتخطو بثبات.", category: "support" },
+                            { text: "أترك الاختيار للصدفة أو للآخرين لكي لا أتحمل المسؤولية.", feedback: "تفقد السيطرة على مسار خياراتك.", category: "boundaries" }
+                        ]
+                    }
+                ],
+                result: {
+                    summary: "تتعامل مع المتغيرات والمفاجآت بدرجة جيدة من المرونة والقدرة على إعادة توجيه بوصلتك.",
+                    strengths: ["المرونة الفكرية وسرعة التأقلم", "الانفتاح على التعلم المستمر من التجارب"],
+                    reflection: ["في لحظات عدم اليقين العالية، قد تحتاج لمنح نفسك وقتاً قصيراً لالتقاط الأنفاس قبل اتخاذ القرار."],
+                    action: "احتفظ دائمًا بقائمة صغيرة للخطط البديلة (Plan B) لتخفيف حدة المفاجآت المستقبلية."
+                }
+            }
+        };
+
+        let currentState = {
+            view: 'home', // 'home', 'path_select', 'quiz', 'result'
+            currentPath: null,
+            currentScenarioIndex: 0,
+            answers: []
+        };
+
+        const appContainer = document.getElementById('app-container');
+
+        function render() {
+            appContainer.innerHTML = '';
+            
+            if (currentState.view === 'home') {
+                renderHome();
+            } else if (currentState.view === 'path_select') {
+                renderPathSelect();
+            } else if (currentState.view === 'quiz') {
+                renderQuiz();
+            } else if (currentState.view === 'result') {
+                renderResult();
+            }
+        }
+
+        function renderHome() {
+            appContainer.innerHTML = `
+                <div class="card">
+                    <h1>قراراتك تصنع قصتك</h1>
+                    <p>تجربة تفاعلية هادئة مستلهمة من أساليب التعامل مع المواقف والضغوط اليومية، تساعدك على اكتشاف أنماط استجابتك وتطوير وعيك الذاتي.</p>
+                    
+                    <div class="disclaimer-box">
+                        <strong>تنويه توري وعلمي:</strong> هذه التجربة توعوية وانعكاسية بحتة وليست أداة تشخيص أو تقييم سريري، ولا تغني عن استشارة المختص عند الحاجة.
+                    </div>
+
+                    <button class="btn" onclick="goToPathSelect()">ابدأ التجربة الان ←</button>
+                </div>
+            `;
+        }
+
+        function goToPathSelect() {
+            currentState.view = 'path_select';
+            render();
+        }
+
+        function renderPathSelect() {
+            let html = `
+                <div class="card">
+                    <h2>اختر مسار الرحلة</h2>
+                    <p>اختر أحد السيناريوهات التالية لتخوض تجربتك الانعكاسية:</p>
+                    <div class="paths-grid">
+            `;
+
+            for (let key in pathsData) {
+                html += `
+                    <div class="path-card" onclick="startPath('${key}')">
+                        <div class="path-info">
+                            <h3>${pathsData[key].title}</h3>
+                            <p>${pathsData[key].desc}</p>
+                        </div>
+                        <div class="path-icon">${pathsData[key].icon}</div>
+                    </div>
+                `;
+            }
+
+            html += `
+                    </div>
+                    <button class="btn btn-secondary" onclick="goToHome()">العودة للرئيسية</button>
+                </div>
+            `;
+            appContainer.innerHTML = html;
+        }
+
+        function goToHome() {
+            currentState.view = 'home';
+            render();
+        }
+
+        function startPath(pathKey) {
+            currentState.currentPath = pathKey;
+            currentState.currentScenarioIndex = 0;
+            currentState.answers = [];
+            currentState.view = 'quiz';
+            render();
+        }
+
+        function renderQuiz() {
+            const path = pathsData[currentState.currentPath];
+            const scenario = path.scenarios[currentState.currentScenarioIndex];
+            const total = path.scenarios.length;
+            const progress = ((currentState.currentScenarioIndex) / total) * 100;
+
+            let html = `
+                <div class="card">
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: ${progress}%"></div>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--teal); font-weight: 700; margin-bottom: 8px;">
+                        ${path.title} — الموقف ${currentState.currentScenarioIndex + 1} من ${total}
+                    </div>
+                    <h2>${scenario.title}</h2>
+                    <p>${scenario.desc}</p>
+                    
+                    <div class="options-list" id="options-list">
+            `;
+
+            scenario.options.forEach((opt, idx) => {
+                html += `<button class="option-btn" onclick="selectOption(${idx})">${opt.text}</button>`;
+            });
+
+            html += `
+                    </div>
+                    <div id="feedback-container"></div>
+                </div>
+            `;
+            appContainer.innerHTML = html;
+        }
+
+        function selectOption(optionIndex) {
+            const path = pathsData[currentState.currentPath];
+            const scenario = path.scenarios[currentState.currentScenarioIndex];
+            const chosenOpt = scenario.options[optionIndex];
+
+            // حفظ الإجابة
+            currentState.answers.push(chosenOpt);
+
+            // تعطيل الأزرار وإظهار التعليق
+            const optionBtns = document.querySelectorAll('.option-btn');
+            optionBtns.forEach(btn => btn.disabled = true);
+
+            const feedbackContainer = document.getElementById('feedback-container');
+            feedbackContainer.innerHTML = `
+                <div class="feedback-box">
+                    <h4>أثر الاختيار على القصة:</h4>
+                    <p>${chosenOpt.feedback}</p>
+                    <button class="btn" onclick="nextScenario()">المتابعة إلى الموقف التالي ←</button>
+                </div>
+            `;
+        }
+
+        function nextScenario() {
+            const path = pathsData[currentState.currentPath];
+            currentState.currentScenarioIndex++;
+
+            if (currentState.currentScenarioIndex < path.scenarios.length) {
+                renderQuiz();
+            } else {
+                currentState.view = 'result';
+                render();
+            }
+        }
+
+        function renderResult() {
+            const path = pathsData[currentState.currentPath];
+            const res = path.result;
+
+            appContainer.innerHTML = `
+                <div class="card">
+                    <h2>نتيجة مسارك: ${path.title} 🎯</h2>
+                    <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin-bottom: 20px;">
+                        ${res.summary}
+                    </p>
+
+                    <div class="result-section">
+                        <h3>💡 نقاط القوة الملاحظة:</h3>
+                        <ul>
+                            ${res.strengths.map(s => `<li>${s}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="result-section" style="margin-top: 15px;">
+                        <h3>🌱 مساحة للتأمل والتطوير:</h3>
+                        <ul>
+                            ${res.reflection.map(r => `<li>${r}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="result-section" style="margin-top: 15px;">
+                        <h3>🛠️ اقتراح عملي صغير:</h3>
+                        <p style="background: #F4F7F4; padding: 12px; border-radius: 8px; font-size: 0.95rem; color: var(--text-main); margin-bottom: 20px;">
+                            ${res.action}
+                        </p>
+                    </div>
+
+                    <div class="disclaimer-box">
+                        <strong>تنويه:</strong> هذه النتيجة انعكاسية توعوية وليست تشخيصًا أو تقييمًا سريريًا.
+                    </div>
+
+                    <div style="display: flex; gap: 10px; flex-direction: column;">
+                        <button class="btn" onclick="goToPathSelect()">جرّب مسارًا آخر 🔄</button>
+                        <button class="btn btn-secondary" onclick="goToHome()">العودة للرئيسية 🏠</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // تشغيل التطبيق لأول مرة
+        render();
+    </script>
+</body>
+</html>
