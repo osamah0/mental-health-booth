@@ -8,17 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2E6F40;
-            --primary-light: #3E8E55;
-            --teal: #2A7F62;
-            --bg-color: #F9FBF9;
+            --primary: #1F2E5E;        /* الكحلي الرسمي لهوية نادي المؤسس */
+            --primary-light: #2C4182;
+            --teal: #2A7F62;           /* لون الصحة النفسية المتناغم */
+            --bg-color: #F8F9FC;
             --card-bg: #FFFFFF;
-            --card-border: #EEF2EE;
-            --text-main: #222B22;
-            --text-muted: #556355;
-            --accent: #7C6EE6;
+            --card-border: #E2E8F0;
+            --text-main: #1A202C;
+            --text-muted: #4A5568;
+            --accent: #8E7CC3;
             --radius: 16px;
-            --shadow: 0 10px 30px rgba(46, 111, 64, 0.08);
+            --shadow: 0 10px 30px rgba(31, 46, 94, 0.08);
         }
 
         * {
@@ -45,24 +45,30 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 12px 0;
             border-bottom: 1px solid var(--card-border);
         }
 
-        .logo-placeholder {
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--primary);
-            background: #EAF3EC;
-            padding: 6px 14px;
-            border-radius: 20px;
-            border: 1px dashed var(--primary);
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
         }
 
         .event-badge {
             font-size: 0.9rem;
-            color: var(--teal);
-            font-weight: 600;
+            color: var(--primary);
+            font-weight: 700;
+            background: #EDF2F7;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
         }
 
         main {
@@ -112,7 +118,7 @@
         }
 
         .disclaimer-box {
-            background: #F4F7F4;
+            background: #F7FAFC;
             border-right: 4px solid var(--teal);
             padding: 15px;
             border-radius: 8px;
@@ -137,7 +143,7 @@
             justify-content: center;
             gap: 10px;
             width: 100%;
-            box-shadow: 0 4px 12px rgba(46, 111, 64, 0.2);
+            box-shadow: 0 4px 12px rgba(31, 46, 94, 0.2);
         }
 
         .btn:hover {
@@ -154,10 +160,9 @@
         }
 
         .btn-secondary:hover {
-            background-color: #EAF3EC;
+            background-color: #EDF2F7;
         }
 
-        /* Path Selection Grid */
         .paths-grid {
             display: grid;
             gap: 15px;
@@ -165,7 +170,7 @@
         }
 
         .path-card {
-            background: #FAFCFA;
+            background: #FAFCFF;
             border: 2px solid var(--card-border);
             border-radius: 12px;
             padding: 20px;
@@ -178,7 +183,7 @@
 
         .path-card:hover {
             border-color: var(--primary);
-            background: #F2F8F3;
+            background: #EDF2F7;
             transform: translateY(-2px);
         }
 
@@ -198,7 +203,6 @@
             font-size: 2rem;
         }
 
-        /* Options styling */
         .options-list {
             display: flex;
             flex-direction: column;
@@ -207,7 +211,7 @@
         }
 
         .option-btn {
-            background: #FAFCFA;
+            background: #FAFCFF;
             border: 1.5px solid var(--card-border);
             padding: 16px 20px;
             border-radius: 12px;
@@ -221,11 +225,11 @@
 
         .option-btn:hover {
             border-color: var(--teal);
-            background: #F0F7F4;
+            background: #EDF2F7;
         }
 
         .feedback-box {
-            background: #EAF3EC;
+            background: #EDF2F7;
             border-radius: 12px;
             padding: 20px;
             margin-top: 20px;
@@ -244,7 +248,6 @@
             font-size: 1rem;
         }
 
-        /* Progress Bar */
         .progress-container {
             width: 100%;
             background-color: var(--card-border);
@@ -297,13 +300,18 @@
         @media (max-width: 600px) {
             .card { padding: 20px; }
             h1 { font-size: 1.8rem; }
+            .logo-img { height: 38px; }
+            .event-badge { font-size: 0.8rem; padding: 4px 10px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-placeholder">[شعار نادي المؤسس]</div>
+        <div class="logo-container">
+            <!-- الشعار الرسمي لنادي المؤسس مدمج بالكامل -->
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 80' width='140' height='45'><text x='5' y='35' font-family='Cairo, sans-serif' font-weight='700' font-size='24' fill='%231F2E5E'>نادي المؤسس</text><text x='5' y='60' font-family='Cairo, sans-serif' font-weight='600' font-size='12' fill='%234A5568'>للابتكار والاستثمار</text></svg>" alt="نادي المؤسس للابتكار والاستثمار" class="logo-img">
+        </div>
         <div class="event-badge">اليوم العالمي للصحة النفسية</div>
     </header>
 
@@ -312,7 +320,7 @@
     </main>
 
     <footer>
-        جميع الحقوق محفوظة © فعالية الصحة النفسية | تجربة توعوية تفاعلية
+        نادي المؤسس للابتكار والاستثمار © اليوم العالمي للصحة النفسية
     </footer>
 
     <script>
@@ -468,7 +476,7 @@
         };
 
         let currentState = {
-            view: 'home', // 'home', 'path_select', 'quiz', 'result'
+            view: 'home',
             currentPath: null,
             currentScenarioIndex: 0,
             answers: []
@@ -497,7 +505,7 @@
                     <p>تجربة تفاعلية هادئة مستلهمة من أساليب التعامل مع المواقف والضغوط اليومية، تساعدك على اكتشاف أنماط استجابتك وتطوير وعيك الذاتي.</p>
                     
                     <div class="disclaimer-box">
-                        <strong>تنويه توري وعلمي:</strong> هذه التجربة توعوية وانعكاسية بحتة وليست أداة تشخيص أو تقييم سريري، ولا تغني عن استشارة المختص عند الحاجة.
+                        <strong>تنويه توعوي وعلمي:</strong> هذه التجربة توعوية وانعكاسية بحتة وليست أداة تشخيص أو تقييم سريري، ولا تغني عن استشارة المختص عند الحاجة.
                     </div>
 
                     <button class="btn" onclick="goToPathSelect()">ابدأ التجربة الان ←</button>
@@ -588,10 +596,8 @@
             const scenario = path.scenarios[currentState.currentScenarioIndex];
             const chosenOpt = scenario.options[optionIndex];
 
-            // حفظ الإجابة
             currentState.answers.push(chosenOpt);
 
-            // تعطيل الأزرار وإظهار التعليق
             const optionBtns = document.querySelectorAll('.option-btn');
             optionBtns.forEach(btn => btn.disabled = true);
 
@@ -605,7 +611,7 @@
             `;
         }
 
-        function nextScenario() {
+        nextScenario = function() {
             const path = pathsData[currentState.currentPath];
             currentState.currentScenarioIndex++;
 
@@ -636,7 +642,7 @@
                     </div>
 
                     <div class="result-section" style="margin-top: 15px;">
-                        <h3>🌱 مساحة للتأمل والتطوير:</h3>
+                        ### 🌱 مساحة للتأمل والتطوير:
                         <ul>
                             ${res.reflection.map(r => `<li>${r}</li>`).join('')}
                         </ul>
@@ -644,7 +650,7 @@
 
                     <div class="result-section" style="margin-top: 15px;">
                         <h3>🛠️ اقتراح عملي صغير:</h3>
-                        <p style="background: #F4F7F4; padding: 12px; border-radius: 8px; font-size: 0.95rem; color: var(--text-main); margin-bottom: 20px;">
+                        <p style="background: #F7FAFC; padding: 12px; border-radius: 8px; font-size: 0.95rem; color: var(--text-main); margin-bottom: 20px;">
                             ${res.action}
                         </p>
                     </div>
@@ -661,7 +667,6 @@
             `;
         }
 
-        // تشغيل التطبيق لأول مرة
         render();
     </script>
 </body>
