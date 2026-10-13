@@ -8,15 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* ألوان الصحة النفسية والهدوء البصري */
-            --primary: #2C6B4F;         /* أخضر زيتي مريح ورسمي */
+            --primary: #2C6B4F;
             --primary-hover: #22533D;
-            --teal: #2A7F62;            /* تركواز هادئ للمحاور */
+            --teal: #2A7F62;
             --teal-light: #E8F4F0;
-            --bg-color: #F4F7F5;        /* خلفية عاجية هادئة مريحة للعين */
+            --bg-color: #F4F7F5;
             --card-bg: #FFFFFF;
             --card-border: #D8E3DD;
-            --text-main: #1C2823;       /* داكن جداً للقراءة */
+            --text-main: #1C2823;
             --text-muted: #4A5D55;
             --radius: 20px;
             --shadow: 0 12px 40px rgba(44, 107, 79, 0.12);
@@ -60,7 +59,7 @@
         }
 
         .logo-img {
-            height: 60px;
+            height: 55px;
             width: auto;
             object-fit: contain;
         }
@@ -318,8 +317,8 @@
 
     <header>
         <div class="logo-container">
-            <!-- يقرأ صورة logo.png المرفوعة في المستودع -->
-            <img src="logo.png" alt="نادي المؤسس للابتكار والاستثمار" class="logo-img" onerror="this.onerror=null; this.src='founder-club-logo-teal.pdf';">
+            <!-- يقرأ الصورة بالاسم الحالي logo.png.jpeg الموجود في المستودع -->
+            <img src="logo.png.jpeg" alt="نادي المؤسس للابتكار والاستثمار" class="logo-img">
         </div>
         <div class="event-badge">🌱 اليوم العالمي للصحة النفسية</div>
     </header>
@@ -613,69 +612,3 @@
             feedbackContainer.innerHTML = `
                 <div class="feedback-box">
                     <h4>أثر الاختيار على القصة:</h4>
-                    <p>${chosenOpt.feedback}</p>
-                    <button class="btn" onclick="nextScenario()">المتابعة إلى الموقف التالي ←</button>
-                </div>
-            `;
-        }
-
-        function nextScenario() {
-            const path = pathsData[currentState.currentPath];
-            currentState.currentScenarioIndex++;
-
-            if (currentState.currentScenarioIndex < path.scenarios.length) {
-                renderQuiz();
-            } else {
-                currentState.view = 'result';
-                render();
-            }
-        }
-
-        function renderResult() {
-            const path = pathsData[currentState.currentPath];
-            const res = path.result;
-
-            appContainer.innerHTML = `
-                <div class="card">
-                    <h2>نتيجة مسارك: ${path.title} 🎯</h2>
-                    <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 22px;">
-                        ${res.summary}
-                    </p>
-
-                    <div class="result-section">
-                        <h3>💡 نقاط القوة الملاحظة:</h3>
-                        <ul>
-                            ${res.strengths.map(s => `<li>${s}</li>`).join('')}
-                        </ul>
-                    </div>
-
-                    <div class="result-section" style="margin-top: 18px;">
-                        <h3>🌱 مساحة للتأمل والتطوير:</h3>
-                        <ul>
-                            ${res.reflection.map(r => `<li>${r}</li>`).join('')}
-                        </ul>
-                    </div>
-
-                    <div class="result-section" style="margin-top: 18px;">
-                        <h3>🛠️ اقتراح عملي صغير:</h3>
-                        <p style="background: var(--teal-light); padding: 15px; border-radius: 10px; font-size: 1rem; color: var(--text-main); margin-bottom: 22px; border: 1px solid rgba(42, 127, 98, 0.2);">
-                            ${res.action}
-                        </p>
-                    </div>
-
-                    <div class="disclaimer-box">
-                        <strong>تنويه:</strong> هذه النتيجة انعكاسية توعوية وليست تشخيصًا أو تقييمًا سريريًا.
-                    </div>
-
-                    <div style="display: flex; gap: 12px; flex-direction: column;">
-                        <button class="btn" onclick="goToPathSelect()">جرّب مسارًا آخر 🔄</button>
-                        <button class="btn btn-secondary" onclick="goToHome()">العودة للرئيسية 🏠</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        render();
-    </script>
-</body>
-</html>
