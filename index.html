@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قراراتك تصنع قصتك | اليوم العالمي للصحة النفسية</title>
     <!-- خطوط Google Fonts: Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1F2E5E;        /* الكحلي الرسمي لهوية نادي المؤسس */
-            --primary-light: #2C4182;
-            --teal: #2A7F62;           /* لون الصحة النفسية المتناغم */
-            --bg-color: #F8F9FC;
+            /* ألوان الصحة النفسية والهدوء البصري */
+            --primary: #2C6B4F;         /* أخضر زيتي مريح ورسمي */
+            --primary-hover: #22533D;
+            --teal: #2A7F62;            /* تركواز هادئ للمحاور */
+            --teal-light: #E8F4F0;
+            --bg-color: #F4F7F5;        /* خلفية عاجية هادئة مريحة للعين */
             --card-bg: #FFFFFF;
-            --card-border: #E2E8F0;
-            --text-main: #1A202C;
-            --text-muted: #4A5568;
-            --accent: #8E7CC3;
-            --radius: 16px;
-            --shadow: 0 10px 30px rgba(31, 46, 94, 0.08);
+            --card-border: #D8E3DD;
+            --text-main: #1C2823;       /* داكن جداً للقراءة */
+            --text-muted: #4A5D55;
+            --radius: 20px;
+            --shadow: 0 12px 40px rgba(44, 107, 79, 0.12);
         }
 
         * {
@@ -39,14 +40,17 @@
         }
 
         header {
-            max-width: 700px;
+            max-width: 850px;
             width: 100%;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--card-border);
+            padding: 15px 20px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--card-border);
         }
 
         .logo-container {
@@ -56,25 +60,25 @@
         }
 
         .logo-img {
-            height: 48px;
+            height: 60px;
             width: auto;
             object-fit: contain;
         }
 
         .event-badge {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--primary);
-            font-weight: 700;
-            background: #EDF2F7;
-            padding: 6px 14px;
-            border-radius: 20px;
-            border: 1px solid var(--card-border);
+            font-weight: 800;
+            background: var(--teal-light);
+            padding: 8px 18px;
+            border-radius: 30px;
+            border: 1px solid rgba(42, 127, 98, 0.2);
         }
 
         main {
-            max-width: 700px;
+            max-width: 850px;
             width: 100%;
-            margin: 20px auto;
+            margin: 30px auto;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -85,69 +89,69 @@
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: var(--radius);
-            padding: 35px;
+            padding: 40px;
             box-shadow: var(--shadow);
             animation: fadeIn 0.4s ease-in-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             color: var(--primary);
-            margin-bottom: 15px;
-            font-weight: 800;
+            margin-bottom: 18px;
+            font-weight: 900;
             line-height: 1.3;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--primary);
-            margin-bottom: 15px;
-            font-weight: 700;
+            margin-bottom: 18px;
+            font-weight: 800;
         }
 
         p {
             color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.7;
+            font-size: 1.1rem;
+            line-height: 1.8;
             margin-bottom: 25px;
         }
 
         .disclaimer-box {
-            background: #F7FAFC;
-            border-right: 4px solid var(--teal);
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            line-height: 1.6;
+            background: var(--teal-light);
+            border-right: 5px solid var(--primary);
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 28px;
+            line-height: 1.7;
         }
 
         .btn {
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 14px 28px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border-radius: 12px;
+            padding: 16px 32px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            border-radius: 14px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             width: 100%;
-            box-shadow: 0 4px 12px rgba(31, 46, 94, 0.2);
+            box-shadow: 0 6px 18px rgba(44, 107, 79, 0.25);
         }
 
         .btn:hover {
-            background-color: var(--primary-light);
+            background-color: var(--primary-hover);
             transform: translateY(-2px);
         }
 
@@ -156,26 +160,26 @@
             color: var(--primary);
             border: 2px solid var(--primary);
             box-shadow: none;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         .btn-secondary:hover {
-            background-color: #EDF2F7;
+            background-color: var(--teal-light);
         }
 
         .paths-grid {
             display: grid;
-            gap: 15px;
+            gap: 16px;
             margin-bottom: 25px;
         }
 
         .path-card {
-            background: #FAFCFF;
+            background: #FAFCFA;
             border: 2px solid var(--card-border);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 14px;
+            padding: 22px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -183,76 +187,80 @@
 
         .path-card:hover {
             border-color: var(--primary);
-            background: #EDF2F7;
-            transform: translateY(-2px);
+            background: var(--teal-light);
+            transform: translateY(-3px);
         }
 
         .path-info h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--primary);
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            font-weight: 800;
         }
 
         .path-info p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-bottom: 0;
             color: var(--text-muted);
         }
 
         .path-icon {
-            font-size: 2rem;
+            font-size: 2.2rem;
         }
 
         .options-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 22px;
         }
 
         .option-btn {
-            background: #FAFCFF;
-            border: 1.5px solid var(--card-border);
-            padding: 16px 20px;
-            border-radius: 12px;
+            background: #FAFCFA;
+            border: 2px solid var(--card-border);
+            padding: 18px 22px;
+            border-radius: 14px;
             text-align: right;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: var(--text-main);
             cursor: pointer;
             transition: all 0.2s ease;
-            font-weight: 600;
+            font-weight: 700;
+            line-height: 1.5;
         }
 
         .option-btn:hover {
             border-color: var(--teal);
-            background: #EDF2F7;
+            background: var(--teal-light);
         }
 
         .feedback-box {
-            background: #EDF2F7;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
+            background: var(--teal-light);
+            border-radius: 14px;
+            padding: 22px;
+            margin-top: 22px;
+            border: 1px solid rgba(42, 127, 98, 0.2);
             animation: fadeIn 0.3s ease;
         }
 
         .feedback-box h4 {
             color: var(--primary);
-            margin-bottom: 8px;
-            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+            font-weight: 800;
         }
 
         .feedback-box p {
             color: var(--text-main);
-            margin-bottom: 15px;
-            font-size: 1rem;
+            margin-bottom: 18px;
+            font-size: 1.05rem;
         }
 
         .progress-container {
             width: 100%;
             background-color: var(--card-border);
-            height: 8px;
-            border-radius: 4px;
+            height: 10px;
+            border-radius: 6px;
             margin-bottom: 25px;
             overflow: hidden;
         }
@@ -261,47 +269,48 @@
             height: 100%;
             background-color: var(--teal);
             width: 0%;
-            transition: width 0.3s ease;
+            transition: width 0.35s ease;
         }
 
         .result-section {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .result-section h3 {
-            color: var(--teal);
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 800;
         }
 
         .result-section ul {
-            padding-right: 20px;
+            padding-right: 22px;
             color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
         .result-section li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         footer {
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            padding: 10px 0;
-            border-top: 1px solid var(--card-border);
-            max-width: 700px;
+            padding: 15px 0;
+            max-width: 850px;
             width: 100%;
             margin: 0 auto;
+            font-weight: 600;
         }
 
-        @media (max-width: 600px) {
-            .card { padding: 20px; }
-            h1 { font-size: 1.8rem; }
-            .logo-img { height: 38px; }
-            .event-badge { font-size: 0.8rem; padding: 4px 10px; }
+        @media (max-width: 650px) {
+            .card { padding: 25px 20px; }
+            h1 { font-size: 1.9rem; }
+            header { padding: 12px 15px; }
+            .logo-img { height: 45px; }
+            .event-badge { font-size: 0.8rem; padding: 6px 12px; }
         }
     </style>
 </head>
@@ -309,10 +318,10 @@
 
     <header>
         <div class="logo-container">
-            <!-- الشعار الرسمي لنادي المؤسس مدمج بالكامل -->
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 80' width='140' height='45'><text x='5' y='35' font-family='Cairo, sans-serif' font-weight='700' font-size='24' fill='%231F2E5E'>نادي المؤسس</text><text x='5' y='60' font-family='Cairo, sans-serif' font-weight='600' font-size='12' fill='%234A5568'>للابتكار والاستثمار</text></svg>" alt="نادي المؤسس للابتكار والاستثمار" class="logo-img">
+            <!-- يقرأ صورة logo.png المرفوعة في المستودع -->
+            <img src="logo.png" alt="نادي المؤسس للابتكار والاستثمار" class="logo-img" onerror="this.onerror=null; this.src='founder-club-logo-teal.pdf';">
         </div>
-        <div class="event-badge">اليوم العالمي للصحة النفسية</div>
+        <div class="event-badge">🌱 اليوم العالمي للصحة النفسية</div>
     </header>
 
     <main id="app-container">
@@ -320,11 +329,10 @@
     </main>
 
     <footer>
-        نادي المؤسس للابتكار والاستثمار © اليوم العالمي للصحة النفسية
+        نادي المؤسس للابتكار والاستثمار © فعالية اليوم العالمي للصحة النفسية
     </footer>
 
     <script>
-        // بيانات المسارات والمواقف كاملة
         const pathsData = {
             work: {
                 title: "تحت ضغط العمل",
@@ -570,7 +578,7 @@
                     <div class="progress-container">
                         <div class="progress-bar" style="width: ${progress}%"></div>
                     </div>
-                    <div style="font-size: 0.85rem; color: var(--teal); font-weight: 700; margin-bottom: 8px;">
+                    <div style="font-size: 0.9rem; color: var(--teal); font-weight: 800; margin-bottom: 10px;">
                         ${path.title} — الموقف ${currentState.currentScenarioIndex + 1} من ${total}
                     </div>
                     <h2>${scenario.title}</h2>
@@ -611,7 +619,7 @@
             `;
         }
 
-        nextScenario = function() {
+        function nextScenario() {
             const path = pathsData[currentState.currentPath];
             currentState.currentScenarioIndex++;
 
@@ -630,7 +638,7 @@
             appContainer.innerHTML = `
                 <div class="card">
                     <h2>نتيجة مسارك: ${path.title} 🎯</h2>
-                    <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-main); margin-bottom: 20px;">
+                    <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 22px;">
                         ${res.summary}
                     </p>
 
@@ -641,16 +649,16 @@
                         </ul>
                     </div>
 
-                    <div class="result-section" style="margin-top: 15px;">
-                        ### 🌱 مساحة للتأمل والتطوير:
+                    <div class="result-section" style="margin-top: 18px;">
+                        <h3>🌱 مساحة للتأمل والتطوير:</h3>
                         <ul>
                             ${res.reflection.map(r => `<li>${r}</li>`).join('')}
                         </ul>
                     </div>
 
-                    <div class="result-section" style="margin-top: 15px;">
+                    <div class="result-section" style="margin-top: 18px;">
                         <h3>🛠️ اقتراح عملي صغير:</h3>
-                        <p style="background: #F7FAFC; padding: 12px; border-radius: 8px; font-size: 0.95rem; color: var(--text-main); margin-bottom: 20px;">
+                        <p style="background: var(--teal-light); padding: 15px; border-radius: 10px; font-size: 1rem; color: var(--text-main); margin-bottom: 22px; border: 1px solid rgba(42, 127, 98, 0.2);">
                             ${res.action}
                         </p>
                     </div>
@@ -659,7 +667,7 @@
                         <strong>تنويه:</strong> هذه النتيجة انعكاسية توعوية وليست تشخيصًا أو تقييمًا سريريًا.
                     </div>
 
-                    <div style="display: flex; gap: 10px; flex-direction: column;">
+                    <div style="display: flex; gap: 12px; flex-direction: column;">
                         <button class="btn" onclick="goToPathSelect()">جرّب مسارًا آخر 🔄</button>
                         <button class="btn btn-secondary" onclick="goToHome()">العودة للرئيسية 🏠</button>
                     </div>
