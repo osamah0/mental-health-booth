@@ -58,12 +58,6 @@
             gap: 12px;
         }
 
-        .logo-img {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
-        }
-
         .event-badge {
             font-size: 0.95rem;
             color: var(--primary);
@@ -308,7 +302,6 @@
             .card { padding: 25px 20px; }
             h1 { font-size: 1.9rem; }
             header { padding: 12px 15px; }
-            .logo-img { height: 45px; }
             .event-badge { font-size: 0.8rem; padding: 6px 12px; }
         }
     </style>
@@ -317,8 +310,14 @@
 
     <header>
         <div class="logo-container">
-            <!-- يقرأ الصورة بالاسم الحالي logo.png.jpeg الموجود في المستودع -->
-            <img src="logo.png.jpeg" alt="نادي المؤسس للابتكار والاستثمار" class="logo-img">
+            <!-- شعار نادي المؤسس للابتكار والاستثمار المدمج رقمياً -->
+            <svg width="180" height="45" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- أيقونة الترس المصغرة للدلالة على الابتكار والهوية -->
+                <circle cx="22" cy="25" r="16" stroke="#2C6B4F" stroke-width="4" stroke-dasharray="4 2"/>
+                <circle cx="22" cy="25" r="7" fill="#2A7F62"/>
+                <text x="46" y="24" font-family="'Cairo', sans-serif" font-weight="900" font-size="16" fill="#1C2823">نادي المؤسس</text>
+                <text x="47" y="40" font-family="'Cairo', sans-serif" font-weight="700" font-size="10" fill="#4A5D55">للابتكار والاستثمار</text>
+            </svg>
         </div>
         <div class="event-badge">🌱 اليوم العالمي للصحة النفسية</div>
     </header>
@@ -500,115 +499,4 @@
                 renderPathSelect();
             } else if (currentState.view === 'quiz') {
                 renderQuiz();
-            } else if (currentState.view === 'result') {
-                renderResult();
-            }
-        }
-
-        function renderHome() {
-            appContainer.innerHTML = `
-                <div class="card">
-                    <h1>قراراتك تصنع قصتك</h1>
-                    <p>تجربة تفاعلية هادئة مستلهمة من أساليب التعامل مع المواقف والضغوط اليومية، تساعدك على اكتشاف أنماط استجابتك وتطوير وعيك الذاتي.</p>
-                    
-                    <div class="disclaimer-box">
-                        <strong>تنويه توعوي وعلمي:</strong> هذه التجربة توعوية وانعكاسية بحتة وليست أداة تشخيص أو تقييم سريري، ولا تغني عن استشارة المختص عند الحاجة.
-                    </div>
-
-                    <button class="btn" onclick="goToPathSelect()">ابدأ التجربة الان ←</button>
-                </div>
-            `;
-        }
-
-        function goToPathSelect() {
-            currentState.view = 'path_select';
-            render();
-        }
-
-        function renderPathSelect() {
-            let html = `
-                <div class="card">
-                    <h2>اختر مسار الرحلة</h2>
-                    <p>اختر أحد السيناريوهات التالية لتخوض تجربتك الانعكاسية:</p>
-                    <div class="paths-grid">
-            `;
-
-            for (let key in pathsData) {
-                html += `
-                    <div class="path-card" onclick="startPath('${key}')">
-                        <div class="path-info">
-                            <h3>${pathsData[key].title}</h3>
-                            <p>${pathsData[key].desc}</p>
-                        </div>
-                        <div class="path-icon">${pathsData[key].icon}</div>
-                    </div>
-                `;
-            }
-
-            html += `
-                    </div>
-                    <button class="btn btn-secondary" onclick="goToHome()">العودة للرئيسية</button>
-                </div>
-            `;
-            appContainer.innerHTML = html;
-        }
-
-        function goToHome() {
-            currentState.view = 'home';
-            render();
-        }
-
-        function startPath(pathKey) {
-            currentState.currentPath = pathKey;
-            currentState.currentScenarioIndex = 0;
-            currentState.answers = [];
-            currentState.view = 'quiz';
-            render();
-        }
-
-        function renderQuiz() {
-            const path = pathsData[currentState.currentPath];
-            const scenario = path.scenarios[currentState.currentScenarioIndex];
-            const total = path.scenarios.length;
-            const progress = ((currentState.currentScenarioIndex) / total) * 100;
-
-            let html = `
-                <div class="card">
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: ${progress}%"></div>
-                    </div>
-                    <div style="font-size: 0.9rem; color: var(--teal); font-weight: 800; margin-bottom: 10px;">
-                        ${path.title} — الموقف ${currentState.currentScenarioIndex + 1} من ${total}
-                    </div>
-                    <h2>${scenario.title}</h2>
-                    <p>${scenario.desc}</p>
-                    
-                    <div class="options-list" id="options-list">
-            `;
-
-            scenario.options.forEach((opt, idx) => {
-                html += `<button class="option-btn" onclick="selectOption(${idx})">${opt.text}</button>`;
-            });
-
-            html += `
-                    </div>
-                    <div id="feedback-container"></div>
-                </div>
-            `;
-            appContainer.innerHTML = html;
-        }
-
-        function selectOption(optionIndex) {
-            const path = pathsData[currentState.currentPath];
-            const scenario = path.scenarios[currentState.currentScenarioIndex];
-            const chosenOpt = scenario.options[optionIndex];
-
-            currentState.answers.push(chosenOpt);
-
-            const optionBtns = document.querySelectorAll('.option-btn');
-            optionBtns.forEach(btn => btn.disabled = true);
-
-            const feedbackContainer = document.getElementById('feedback-container');
-            feedbackContainer.innerHTML = `
-                <div class="feedback-box">
-                    <h4>أثر الاختيار على القصة:</h4>
+            } else if (
